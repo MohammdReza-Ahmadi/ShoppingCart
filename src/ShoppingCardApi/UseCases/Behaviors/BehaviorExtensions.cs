@@ -1,41 +1,18 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using TaskoMask.BuildingBlocks.Domain.Events;
+﻿using MediatR;
+using ShoppingCartApi.UseCases.Behaviors;
 
-namespace TaskoMask.BuildingBlocks.Application.Behaviors;
+namespace ShoppingCardApi.UseCases.Behaviors;
 
 public static class BehaviorExtensions
 {
     /// <summary>
     ///
     /// </summary>
-    public static void AddApplicationBehaviors(this IServiceCollection services, Type validatorAssemblyMarkerType)
+    public static void AddApplicationBehaviors(this IServiceCollection services)
     {
-        services.AddValidationBehaviour(validatorAssemblyMarkerType);
         services.AddCachingBehavior();
-        services.AddEventStoringBehavior();
     }
-
-    /// <summary>
-    ///
-    /// </summary>
-    public static void AddValidationBehaviour(this IServiceCollection services, Type validatorAssemblyMarkerType)
-    {
-        //Load all fluent validation classes to be used in ValidationBehaviour
-        services.AddValidatorsFromAssembly(validatorAssemblyMarkerType.Assembly);
-
-        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-    }
-
-    /// <summary>
-    ///
-    /// </summary>
-    public static void AddEventStoringBehavior(this IServiceCollection services)
-    {
-        services.AddScoped<INotificationHandler<DomainEvent>, EventStoringBehavior>();
-    }
+    
 
     /// <summary>
     ///
@@ -44,5 +21,6 @@ public static class BehaviorExtensions
     {
         services.AddEasyCaching(option => option.UseInMemory());
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LogingPiplineBehavior<,>));
     }
 }

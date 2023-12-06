@@ -1,22 +1,23 @@
-using Bogus;
-
-namespace ShoppingCardApi.UseCases.Services;
+namespace ShoppingCardApi.UseCases.Services.Product.FackDataProduct;
 
 public static class FackDataProduct
 {
-    public static void InitBogusData()
+
+    public static List<Domain.Product> GetProductGenerator()
     {
-        var productGenerator = GetProductGenerator();
-        var generatedProduct = productGenerator.Generate(20);
-    }
-    
-    private static Faker<Domain.Product> GetProductGenerator()
-    {
-        return new Faker<Domain.Product>()
-            .RuleFor(p => p.Id, f =>f.Random.Int(1,20))
-            .RuleFor(p => p.Name, f => f.Commerce.ProductName())
-            .RuleFor(p => p.Price, f => f.Commerce.Random.Long(1000000, 100000000))
-            .RuleFor(p => p.Description, f => f.Lorem.Paragraph(1))
-            .RuleFor(p => p.Quantity, f => f.Random.Number(1, 40));
+        List<Domain.Product> fackProduct = null;
+        for (int i = 0; i < 1; i++)
+        { fackProduct = new List<Domain.Product>()
+            {
+                new Domain.Product(Guid.NewGuid(), "Tablet", 8000000, string.Empty, 2),
+                new Domain.Product(Guid.NewGuid(), "Mobile", 4000000, string.Empty, 6),
+                new Domain.Product(Guid.NewGuid(), "Telephone", 1000000, string.Empty, 30),
+                new Domain.Product(Guid.NewGuid(), "Toy", 200000, string.Empty, 10),
+                new Domain.Product(Guid.NewGuid(), "Cat", 10000000, string.Empty, 22),
+                new Domain.Product(Guid.NewGuid(), "Dog", 9000000, string.Empty, 7),
+                new Domain.Product(Guid.NewGuid(), "Camputer", 35000000, string.Empty, 9),
+            };
+        }
+        return fackProduct;
     }
 }

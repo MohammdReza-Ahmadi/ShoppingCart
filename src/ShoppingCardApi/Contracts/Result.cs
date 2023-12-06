@@ -1,4 +1,6 @@
-﻿using ShoppingCardApi.Resources;
+﻿
+
+using ShoppingCartApi.Contracts.Resources;
 
 namespace ShoppingCardApi.Contracts;
 

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace TaskoMask.BuildingBlocks.Application.Queries;
+namespace ShoppingCardApi.UseCases.Queries;
 
 /// <summary>
 /// Mark BaseQuery with ICacheableQuery to enable catching for queries by CachingBehavior.

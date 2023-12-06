@@ -2,11 +2,12 @@
 {
     public class ShoppingCart:BaseEntity
     {
-        public ShoppingCart(int quantity,ICollection<Product> products)
+        public ShoppingCart(Guid id,int quantity,ICollection<Product> products)
         {
-            StockQuantity = TotalPrice(products.Select(x=>x.Price).ToArray());
-            products = Products;
-            quantity = Quantity;
+            Id = id;
+            StockQuantity = AndQuantityWithPrice(quantity,products.Select(x=>x.Price).ToArray()); 
+            Products = ProductPolicies(products);
+            Quantity = QuantityPolicies(quantity);
         }
 
         public long StockQuantity { get; set; }
@@ -14,17 +15,36 @@
         public int Quantity { get; set; }
         public ICollection<Product> Products { get; set; }
         
-        
-        
-        private static long TotalPrice(params long[] values)
+
+        private static long AndQuantityWithPrice(int quantity,params long[] prices)
         {
             long total = 0;
-            foreach (var number in values)
+            foreach (var number in prices)
             {
-                total += number;
+                CheckPrice(number);
+                total += number * quantity;
             }
+            return total > 0 ? total:throw new Exception("total invalid");
+        }
 
-            return total > 0 ? total:throw new Exception();
+        private static void CheckPrice(long price)
+        {
+            if (price <= 0)
+                throw new Exception("Price invalid");
+        }
+
+        private static ICollection<Product> ProductPolicies(ICollection<Product> products)
+        {
+            if (products == null || products.Count <= 0)
+                throw new Exception("Product is required");
+            return products;
+        }
+        
+        private static int QuantityPolicies(int quantity)
+        {
+            if (quantity <= 0)
+                throw new Exception("Quantity Is required");
+            return quantity;
         }
     }
 }

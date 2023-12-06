@@ -1,4 +1,5 @@
 using ShoppingCardApi.Domain;
+using ShoppingCardApi.UseCases.Services.Product.FackDataProduct;
 
 namespace ShoppingCardApi.UseCases.Product.GetProductQuery;
 
@@ -9,20 +10,10 @@ public class GetProductQuery : IGetProductQuery
     {
         _productRepo = productRepo;
     }
-    public async Task<Domain.Product> GetProductService(long id)
+    public async Task<Domain.Product> GetProductService(Guid id)
     {
-        var pro = new Domain.Product()
-        {
-            Id = 1,
-            Name = "Tablet",
-            Description = null,
-            Price = 8000000,
-            Quantity = 20,
-        };
-        List<Domain.Product> p = new List<Domain.Product>();
-        p.Add(pro);
-        await _productRepo.AddAsync(pro);
-        var product = await _productRepo.GetAsync(id);
-        return product;
+
+        _productRepo.AddRangeAsync(FackDataProduct.GetProductGenerator());
+        return await _productRepo.GetAsync(id);
     }
 }

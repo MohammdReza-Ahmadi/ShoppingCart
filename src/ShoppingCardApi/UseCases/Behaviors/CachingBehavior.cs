@@ -1,14 +1,9 @@
 ﻿using EasyCaching.Core;
 using MediatR;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
-using TaskoMask.BuildingBlocks.Application.Queries;
+using ShoppingCardApi.UseCases.Queries;
 
-namespace TaskoMask.BuildingBlocks.Application.Behaviors;
+namespace ShoppingCardApi.UseCases.Behaviors;
 
 /// <summary>
 /// Caching response for queries that are mareked by ICacheableQuery
@@ -39,7 +34,7 @@ public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     /// <summary>
     ///
     /// </summary>
-    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+    public async Task<TResponse> Handle(TRequest request,  RequestHandlerDelegate<TResponse> next,CancellationToken cancellationToken)
     {
         // ignore command requests
         if (request is not ICacheableQuery cacheableQuery)
@@ -95,4 +90,5 @@ public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     }
 
     #endregion
+    
 }

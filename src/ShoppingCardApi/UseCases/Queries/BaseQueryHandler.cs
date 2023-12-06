@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace TaskoMask.BuildingBlocks.Application.Queries;
+namespace ShoppingCardApi.UseCases.Queries;
 
 /// <summary>
 ///

@@ -2,11 +2,16 @@ namespace ShoppingCardApi.Domain;
 
 public class BaseEntity:Entity
 {
+    public BaseEntity()
+    {
+        CreateDateTime = CreationDateTime.CreateNowDateTime();
+    }
     
-    
-    public DateTimeOffset CreateDateTime { get; private set; }
-    
-    
-    
-    public DateTimeOffset ModifyDateTime { get; private set; }
+    public CreationDateTime CreateDateTime { get; private set; }
+
+
+    protected void UpdateModifiedDateTime()
+    {
+        CreateDateTime = CreateDateTime.UpdateModifiedDateTime();
+    }
 }

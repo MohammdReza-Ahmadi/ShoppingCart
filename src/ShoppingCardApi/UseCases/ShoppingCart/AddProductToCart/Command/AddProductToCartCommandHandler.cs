@@ -1,34 +1,40 @@
 using MediatR;
+using ShoppingCardApi.Contracts;
 using ShoppingCardApi.Domain;
-using ShoppingCardApi.Resources;
+using ShoppingCardApi.UseCases.Product.GetProductQuery;
 using ShoppingCardApi.UseCases.ShoppingCart.AddProductToCart.Common;
+using ShoppingCartApi.Contracts.Resources;
 
 namespace ShoppingCardApi.UseCase.ShoppingCart.AddProductToCart.Command;
 
-public class AddProductToCartCommandHandler:IRequestHandler<AddProductToCartCommand,AddProductToCartResult>
+public class AddProductToCartCommandHandler:IRequestHandler<AddProductToCartCommand,Result>
 {
+    
+    
+    
     private readonly IRepository<Domain.ShoppingCart> _repository;
-    public AddProductToCartCommandHandler(IRepository<Domain.ShoppingCart> repository)
+
+    private readonly IGetProductQuery _product;
+    
+    
+    public AddProductToCartCommandHandler(IRepository<Domain.ShoppingCart> repository,
+        IGetProductQuery product)
     {
         _repository = repository;
+        _product = product;
     }
-    public async Task<AddProductToCartResult> Handle(AddProductToCartCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(AddProductToCartCommand request, CancellationToken cancellationToken)
     {
-        var pro = new Product()
-        {
-            Id = 1,
-            Name = "Tablet",
-            Description = null,
-            Price = 8000000,
-            Quantity = 20,
-        };
-        List<Product> p = new List<Product>()
-        {
-            pro
-        };
-        await _repository.AddAsync(new Domain.ShoppingCart(request.Quantity,p));
-        //var getProduct= await _repository.GetAsync(request.productId); ; 
         
-        return new AddProductToCartResult(ContractMessages.CreateSucceed);
+        var getProduct= await _product.GetProductService(request.productId);
+        if (getProduct == null)
+            throw new Exception("Product Not Founded");
+        List<Product> products = new List<Product>() {getProduct};
+        
+        
+        
+        await _repository.AddAsync(new Domain.ShoppingCart(Guid.NewGuid(),request.Quantity,products));
+
+        return Result.Success(ContractMessages.CreateSucceed);
     }
 }

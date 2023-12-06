@@ -4,12 +4,17 @@ namespace ShoppingCardApi.Infrastructure.Repository;
 
 public class Repository<TEntity>:IRepository<TEntity> where TEntity: Entity
 {
-    private List<TEntity> _entities => new();
+    private static readonly List<TEntity> _entities = new();
     
     public virtual async Task AddAsync(TEntity entity)
     {
         _entities.Add(entity);
          await Task.CompletedTask;
+    }
+
+    public async Task AddRangeAsync(List<TEntity> entity)
+    {
+        _entities.AddRange(entity);
     }
 
     public async Task DeleteAsync(TEntity entity)
@@ -22,7 +27,12 @@ public class Repository<TEntity>:IRepository<TEntity> where TEntity: Entity
     { 
         return await Task.FromResult(_entities.SingleOrDefault(entity => entity.Id == id));
     }
-    
+
+    public async Task<List<TEntity>> GetAllAsync()
+    {
+        return await Task.FromResult(_entities);
+    }
+
 
     public void Dispose()
     {

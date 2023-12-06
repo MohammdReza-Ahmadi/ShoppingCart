@@ -3,6 +3,7 @@ using ShoppingCardApi.Configurations.Swagger;
 using ShoppingCardApi.Exceptions;
 using ShoppingCardApi.Infrastructure.DI;
 using ShoppingCardApi.UseCases.ShoppingCart;
+using ShoppingCardApi.UseCases.Behaviors;
 
 namespace ShoppingCardApi.Configurations;
 
@@ -14,6 +15,7 @@ public static class HostingExtentions
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddApplication();
+        builder.Services.AddApplicationBehaviors();
         builder.Services.AddInfrastructure(builder.Configuration);
         return builder.Build();
     

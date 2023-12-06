@@ -13,6 +13,7 @@ public class GetProductFromCartQuery:IGetProductFromCartQuery
 
     public async Task<Domain.ShoppingCart> GetShoppingCartService(long id)
     {
+
       return await _repository.GetAsync(id);
     }
 }

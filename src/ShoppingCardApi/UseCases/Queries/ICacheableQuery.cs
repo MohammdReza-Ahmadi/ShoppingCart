@@ -1,4 +1,4 @@
-﻿namespace TaskoMask.BuildingBlocks.Application.Queries;
+﻿namespace ShoppingCardApi.UseCases.Queries;
 
 /// <summary>
 /// to mark queries that we want to cache
