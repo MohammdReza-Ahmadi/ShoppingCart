@@ -2,6 +2,7 @@ using MediatR;
 using ShoppingCardApi.Contracts;
 using ShoppingCardApi.Domain;
 using ShoppingCardApi.UseCases.Product.GetProductQuery;
+using ShoppingCardApi.UseCases.Services.Product.FackDataProduct;
 using ShoppingCardApi.UseCases.ShoppingCart.AddProductToCart.Common;
 using ShoppingCartApi.Contracts.Resources;
 
@@ -33,7 +34,7 @@ public class AddProductToCartCommandHandler:IRequestHandler<AddProductToCartComm
         
         
         
-        await _repository.AddAsync(new Domain.ShoppingCart(Guid.NewGuid(),request.Quantity,products));
+        await _repository.AddAsync(new Domain.ShoppingCart(FackDataProduct.GenerateFackId(), request.Quantity,products));
 
         return Result.Success(ContractMessages.CreateSucceed);
     }

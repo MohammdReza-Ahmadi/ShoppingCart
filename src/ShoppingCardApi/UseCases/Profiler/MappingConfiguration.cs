@@ -1,2 +1,0 @@
-namespace ShoppingCardApi.UseCases.Profiler;
-

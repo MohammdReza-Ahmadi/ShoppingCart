@@ -10,7 +10,7 @@ public class GetProductQuery : IGetProductQuery
     {
         _productRepo = productRepo;
     }
-    public async Task<Domain.Product> GetProductService(Guid id)
+    public async Task<Domain.Product> GetProductService(long id)
     {
 
         _productRepo.AddRangeAsync(FackDataProduct.GetProductGenerator());

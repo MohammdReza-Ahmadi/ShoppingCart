@@ -2,7 +2,7 @@
 {
     public class Product:BaseEntity
     {
-        public Product(Guid id,string name,long price,string description,int quantity)
+        public Product(long id,string name,long price,string description,int quantity)
         {
             Id = id;
             Name = NamePolicies(name);

@@ -6,9 +6,9 @@ public class Entity
     {
         
     }
-    public Guid Id { get; set; }
+    public long Id { get; set; }
 
-    protected void SetId(Guid id)
+    protected void SetId(long id)
     {
         Id = id;
     }

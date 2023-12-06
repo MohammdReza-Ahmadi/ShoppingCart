@@ -2,7 +2,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCardApi.Contracts;
 using ShoppingCardApi.UseCase.ShoppingCart.AddProductToCart.Command;
-using ShoppingCardApi.UseCases.ShoppingCart.AddProductToCart.Common;
 using ShoppingCardApi.UseCases.ShoppingCart.RemoveProductFromCart;
 
 namespace ShoppingCardApi.Controllers;
@@ -27,8 +26,8 @@ public class ShoppingCartController: BaseApiController
     }
     
     [HttpDelete("RemoveProduct")]
-    public async Task RemoveProductFromShoppingCart(RemoveProductFromCart model)
+    public async Task<Result> RemoveProductFromShoppingCart(RemoveProductFromCart model)
     {
-         await _sender.Send(model);
+       return  await _sender.Send(model);
     }
 }

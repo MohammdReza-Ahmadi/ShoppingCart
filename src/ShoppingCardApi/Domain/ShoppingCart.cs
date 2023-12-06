@@ -2,7 +2,7 @@
 {
     public class ShoppingCart:BaseEntity
     {
-        public ShoppingCart(Guid id,int quantity,ICollection<Product> products)
+        public ShoppingCart(long id,int quantity,ICollection<Product> products)
         {
             Id = id;
             StockQuantity = AndQuantityWithPrice(quantity,products.Select(x=>x.Price).ToArray()); 
