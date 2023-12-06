@@ -23,7 +23,7 @@ public class Repository<TEntity>:IRepository<TEntity> where TEntity: Entity
         await Task.CompletedTask;
     }
 
-    public virtual async Task<TEntity> GetAsync(long id)
+    public virtual async Task<TEntity> GetAsync(Guid id)
     { 
         return await Task.FromResult(_entities.SingleOrDefault(entity => entity.Id == id));
     }
