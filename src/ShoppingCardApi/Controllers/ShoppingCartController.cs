@@ -20,7 +20,7 @@ public class ShoppingCartController: BaseApiController
     }
     
     [HttpPost("AddProduct")]
-    public async Task<Result> AddProductToShoppingCart(AddProductToCartCommand model)
+    public async Task<Result<long>> AddProductToShoppingCart(AddProductToCartCommand model)
     {
       return await _sender.Send(model);
     }

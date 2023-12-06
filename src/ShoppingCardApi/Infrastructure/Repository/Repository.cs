@@ -6,10 +6,10 @@ public class Repository<TEntity>:IRepository<TEntity> where TEntity: Entity
 {
     private static readonly List<TEntity> _entities = new();
     
-    public virtual async Task AddAsync(TEntity entity)
+    public virtual async Task<long> AddAsync(TEntity entity)
     {
         _entities.Add(entity);
-         await Task.CompletedTask;
+        return await Task.FromResult(entity.Id);
     }
 
     public async Task AddRangeAsync(List<TEntity> entity)
