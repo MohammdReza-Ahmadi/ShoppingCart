@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,16 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OperationSuccess" xml:space="preserve">
-    <value>OperationSuccess</value>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
   </data>
-  <data name="OperationFailed" xml:space="preserve">
-    <value>OperationFailed</value>
-  </data>
-  <data name="CreateSucceed" xml:space="preserve">
-    <value>CreateSucceed</value>
-  </data>
-  <data name="NotFound" xml:space="preserve">
-    <value>NotFound</value>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>ShoppingCart</value>
   </data>
 </root>

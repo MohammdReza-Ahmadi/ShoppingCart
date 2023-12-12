@@ -22,24 +22,24 @@ namespace ShoppingCartApi.Contracts.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ContractMessages {
+    public class DomainMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ContractMessages() {
+        internal DomainMessage() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ShoppingCartApi.Contracts.Resources.ContractMessages", typeof(ContractMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ShoppingCartApi.Contracts.Resources.DomainMessage", typeof(DomainMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace ShoppingCartApi.Contracts.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,38 +61,20 @@ namespace ShoppingCartApi.Contracts.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CreateSucceed.
+        ///   Looks up a localized string similar to Product.
         /// </summary>
-        internal static string CreateSucceed {
+        public static string Product {
             get {
-                return ResourceManager.GetString("CreateSucceed", resourceCulture);
+                return ResourceManager.GetString("Product", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NotFound.
+        ///   Looks up a localized string similar to ShoppingCart.
         /// </summary>
-        internal static string NotFound {
+        public static string ShoppingCart {
             get {
-                return ResourceManager.GetString("NotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to OperationFailed.
-        /// </summary>
-        internal static string OperationFailed {
-            get {
-                return ResourceManager.GetString("OperationFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to OperationSuccess.
-        /// </summary>
-        internal static string OperationSuccess {
-            get {
-                return ResourceManager.GetString("OperationSuccess", resourceCulture);
+                return ResourceManager.GetString("ShoppingCart", resourceCulture);
             }
         }
     }
