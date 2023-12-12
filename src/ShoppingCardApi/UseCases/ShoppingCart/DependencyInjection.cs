@@ -1,10 +1,11 @@
-using System.Reflection;
 using MediatR;
+using System.Reflection;
 using ShoppingCardApi.UseCases.Product.GetProductQuery;
-using ShoppingCardApi.UseCases.Services.Product;
+using ShoppingCartApi.UseCases.Product.GetProductQuery;
 using ShoppingCardApi.UseCases.ShoppingCart.AddProductToCart.Queries;
+using ShoppingCartApi.UseCases.ShoppingCart.AddProductToCart.Queries;
 
-namespace ShoppingCardApi.UseCases.ShoppingCart;
+namespace ShoppingCartApi.UseCases.ShoppingCart;
 
 public static class DependencyInjection
 {
@@ -12,7 +13,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
         services.AddScoped<IGetProductFromCartQuery,GetProductFromCartQuery>();
-        services.AddScoped<IGetProductQuery,GetProductQuery>();
+        services.AddScoped<IGetProductQuery, GetProductQuery>();
         return services;
     }
 

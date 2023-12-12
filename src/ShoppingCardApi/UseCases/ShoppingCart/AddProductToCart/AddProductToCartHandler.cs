@@ -1,13 +1,13 @@
 using MediatR;
-using ShoppingCardApi.Contracts;
-using ShoppingCardApi.Domain;
-using ShoppingCardApi.UseCases.Product.GetProductQuery;
-using ShoppingCardApi.UseCases.Services.Product.FackDataProduct;
+using ShoppingCartApi.Domain;
+using ShoppingCartApi.Contracts;
 using ShoppingCartApi.Contracts.Resources;
+using ShoppingCartApi.UseCases.Product.GetProductQuery;
+using ShoppingCartApi.UseCases.Services.Product.FackDataProduct;
 
-namespace ShoppingCardApi.UseCase.ShoppingCart.AddProductToCart.Command;
+namespace ShoppingCartApi.UseCases.ShoppingCart.AddProductToCart;
 
-public class AddProductToCartCommandHandler : IRequestHandler<AddProductToCartCommand, Result<long>>
+public class AddProductToCartHandler : IRequestHandler<AddProductToCart, Result<long>>
 {
 
 
@@ -17,19 +17,19 @@ public class AddProductToCartCommandHandler : IRequestHandler<AddProductToCartCo
     private readonly IGetProductQuery _product;
 
 
-    public AddProductToCartCommandHandler(IRepository<Domain.ShoppingCart> repository,
+    public AddProductToCartHandler(IRepository<Domain.ShoppingCart> repository,
         IGetProductQuery product)
     {
         _repository = repository;
         _product = product;
     }
-    public async Task<Result<long>> Handle(AddProductToCartCommand request, CancellationToken cancellationToken)
+    public async Task<Result<long>> Handle(AddProductToCart request, CancellationToken cancellationToken)
     {
 
         var getProduct = await _product.GetProductService(request.productId);
         if (getProduct == null)
             throw new Exception("Product Not Founded");
-        List<Product> products = new List<Product>() { getProduct };
+        List<Domain.Product> products = new List<Domain.Product>() { getProduct };
 
 
 
