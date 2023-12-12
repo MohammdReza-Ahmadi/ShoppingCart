@@ -1,4 +1,4 @@
-namespace ShoppingCardApi.Domain;
+namespace ShoppingCartApi.Domain;
 
 public interface IRepository<TEntity>:IDisposable where TEntity: Entity
 {

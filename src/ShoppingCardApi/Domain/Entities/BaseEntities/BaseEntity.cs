@@ -1,4 +1,4 @@
-namespace ShoppingCardApi.Domain;
+namespace ShoppingCartApi.Domain;
 
 public class BaseEntity:Entity
 {
