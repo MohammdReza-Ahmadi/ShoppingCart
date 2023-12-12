@@ -10,8 +10,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UseCases\ShoppingCart\AddProductToCart\Queries\**" />
+    <Compile Remove="UseCases\ShoppingCart\RemoveProductFromCart\Common\**" />
+    <Content Remove="UseCases\ShoppingCart\AddProductToCart\Queries\**" />
+    <Content Remove="UseCases\ShoppingCart\RemoveProductFromCart\Common\**" />
+    <EmbeddedResource Remove="UseCases\ShoppingCart\AddProductToCart\Queries\**" />
+    <EmbeddedResource Remove="UseCases\ShoppingCart\RemoveProductFromCart\Common\**" />
+    <None Remove="UseCases\ShoppingCart\AddProductToCart\Queries\**" />
+    <None Remove="UseCases\ShoppingCart\RemoveProductFromCart\Common\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="EasyCaching.InMemory" Version="1.9.3-alpha20231127013454" />
+    <PackageReference Include="FluentValidation" Version="11.8.1" />
     <PackageReference Include="MediatR" Version="12.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.13" />
@@ -26,12 +38,13 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="UseCases\ShoppingCart\AddProductToCart\Queries" />
-    <Folder Include="UseCases\ShoppingCart\RemoveProductFromCart\Common\Behaviar" />
-    <Folder Include="UseCases\ShoppingCart\RemoveProductFromCart\Common\Result" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Contracts\Resources\DomainMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DomainMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\ContractMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ContractMessages.Designer.cs</LastGenOutput>
@@ -47,6 +60,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ContractMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Contracts\Resources\DomainMessage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainMessage.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\ContractMessages.Designer.cs">
       <DesignTime>True</DesignTime>
