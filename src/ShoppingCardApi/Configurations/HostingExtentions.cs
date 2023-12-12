@@ -1,11 +1,11 @@
-using ShoppingCardApi.Configurations.Prometuos;
-using ShoppingCardApi.Configurations.Swagger;
-using ShoppingCardApi.Exceptions;
-using ShoppingCardApi.Infrastructure.DI;
-using ShoppingCardApi.UseCases.ShoppingCart;
-using ShoppingCardApi.UseCases.Behaviors;
+using ShoppingCartApi.Configurations.Prometuos;
+using ShoppingCartApi.Configurations.Swagger;
+using ShoppingCartApi.Exceptions;
+using ShoppingCartApi.Infrastructure.DI;
+using ShoppingCartApi.UseCases.ShoppingCart;
+using ShoppingCartApi.UseCases.Behaviors;
 
-namespace ShoppingCardApi.Configurations;
+namespace ShoppingCartApi.Configurations;
 
 public static class HostingExtentions
 {

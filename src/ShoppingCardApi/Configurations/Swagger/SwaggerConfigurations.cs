@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 
-namespace ShoppingCardApi.Configurations.Swagger;
+namespace ShoppingCartApi.Configurations.Swagger;
 
 public static class SwaggerConfigurations
 {

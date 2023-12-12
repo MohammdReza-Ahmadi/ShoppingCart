@@ -1,4 +1,4 @@
-namespace ShoppingCardApi.Configurations.Swagger;
+namespace ShoppingCartApi.Configurations.Swagger;
 
 public class SwaggerOptions
 {

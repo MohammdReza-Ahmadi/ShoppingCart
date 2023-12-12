@@ -1,6 +1,6 @@
 using Prometheus;
 
-namespace ShoppingCardApi.Configurations.Prometuos;
+namespace ShoppingCartApi.Configurations.Prometuos;
 
 public static class MetricConfiguration
 {

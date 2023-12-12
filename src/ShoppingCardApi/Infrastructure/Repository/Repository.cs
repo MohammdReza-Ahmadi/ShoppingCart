@@ -1,6 +1,6 @@
-using ShoppingCardApi.Domain;
+using ShoppingCartApi.Domain;
 
-namespace ShoppingCardApi.Infrastructure.Repository;
+namespace ShoppingCartApi.Infrastructure.Repository;
 
 public class Repository<TEntity>:IRepository<TEntity> where TEntity: Entity
 {

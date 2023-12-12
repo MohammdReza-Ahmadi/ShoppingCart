@@ -1,7 +1,7 @@
 using System.Net;
-using ShoppingCardApi.Contracts;
+using ShoppingCartApi.Contracts;
 
-namespace ShoppingCardApi.Exceptions;
+namespace ShoppingCartApi.Exceptions;
 
 public class HttpGlobalExceptionHandler//:IMiddleware
 {

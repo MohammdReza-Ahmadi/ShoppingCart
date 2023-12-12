@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ShoppingCardApi.Controllers;
+namespace ShoppingCartApi.Controllers;
 
 public class BaseApiController: Controller
 {

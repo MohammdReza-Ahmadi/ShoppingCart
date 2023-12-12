@@ -1,7 +1,7 @@
-using ShoppingCardApi.Domain;
-using ShoppingCardApi.Infrastructure.Repository;
+using ShoppingCartApi.Domain;
+using ShoppingCartApi.Infrastructure.Repository;
 
-namespace ShoppingCardApi.Infrastructure.DI;
+namespace ShoppingCartApi.Infrastructure.DI;
 
 public static class InfraDependencyInjection
 {

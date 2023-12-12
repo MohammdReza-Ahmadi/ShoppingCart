@@ -2,7 +2,7 @@
 
 using ShoppingCartApi.Contracts.Resources;
 
-namespace ShoppingCardApi.Contracts;
+namespace ShoppingCartApi.Contracts;
 
 /// <summary>
 ///

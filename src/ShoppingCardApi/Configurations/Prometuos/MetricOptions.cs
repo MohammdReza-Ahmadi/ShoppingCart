@@ -1,4 +1,4 @@
-﻿namespace ShoppingCardApi.Configurations.Prometuos;
+﻿namespace ShoppingCartApi.Configurations.Prometuos;
 
 public class MetricOptions
 {
