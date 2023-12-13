@@ -2,7 +2,6 @@ using ShoppingCartApi.Configurations.Prometuos;
 using ShoppingCartApi.Configurations.Swagger;
 using ShoppingCartApi.Exceptions;
 using ShoppingCartApi.Infrastructure.DI;
-using ShoppingCartApi.UseCases.ShoppingCart;
 using ShoppingCartApi.UseCases.Behaviors;
 
 namespace ShoppingCartApi.Configurations;
@@ -52,6 +51,8 @@ public static class HostingExtentions
         app.UseAuthentication();
 
         app.UseAuthorization();
+
+
     }
     
     private static void UseGlobalExceptionHandler(this IApplicationBuilder app)
