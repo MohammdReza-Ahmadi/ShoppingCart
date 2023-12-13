@@ -2,11 +2,12 @@
 using ShoppingCartApi.Domain.ValueObjects;
 using ShoppingCartApi.Domain.ValueObjects.Products;
 
-namespace ShoppingCartApi.Domain;
+namespace ShoppingCartApi.Domain.Entities.ShoppingCarts;
 public class Product : AggregateRoot
 {
-    public Product(string name, long price, string description, int stockQuantity)
+    public Product(long id,string name, long price, string description, int stockQuantity)
     {
+        SetId(id);
         Name = ProductName.Create(name);
         Price = ProductPrice.Create(price);
         Description = ProductDescription.Create(description);
@@ -21,14 +22,14 @@ public class Product : AggregateRoot
     public ProductStockQuantity StockQuantity { get; private set; }
 
 
-    public Product AddProduct(string name, long price, string description, int stockQuantity)
+    public static Product AddProduct(long id,string name, long price, string description, int stockQuantity)
     {
-        return new Product(name, price, description, stockQuantity);
+        return new Product(id, name, price, description, stockQuantity);
     }
 
     protected override void CheckInvariants()
     {
-        throw new NotImplementedException();
+       
     }
 }
 

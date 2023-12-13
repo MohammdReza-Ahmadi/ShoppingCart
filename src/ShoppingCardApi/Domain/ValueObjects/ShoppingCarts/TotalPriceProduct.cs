@@ -6,7 +6,6 @@ public class TotalPriceProduct : BaseValueObject
     {
 
         Value = value;
-        CheckPolicies();
     }
 
 
@@ -23,8 +22,7 @@ public class TotalPriceProduct : BaseValueObject
 
     protected override void CheckPolicies()
     {
-        if (Value <= 0)
-            throw new Exception("Quantity Is required");
+        throw new NotImplementedException();
     }
 }
 

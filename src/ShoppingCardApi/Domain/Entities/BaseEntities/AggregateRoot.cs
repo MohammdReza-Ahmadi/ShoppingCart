@@ -17,7 +17,7 @@ public abstract class AggregateRoot: BaseEntity
     }
     #endregion
 
-    #region
+    #region Version
 
     /// <summary>
     /// To handle concurrency
@@ -26,9 +26,8 @@ public abstract class AggregateRoot: BaseEntity
     public string Version { get; private set; }
 
     public IReadOnlyCollection<DomainEvent> DomainEvents => domainEvents?.AsReadOnly();
+
     #endregion
-
-
 
     #region Public Methods
 

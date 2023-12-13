@@ -1,4 +1,4 @@
-﻿using ShoppingCartApi.Contracts.Resources;
+﻿using ShoppingCartApi.Domain.Resources;
 
 namespace ShoppingCartApi.Domain.Events.ShoppingCarts
 {

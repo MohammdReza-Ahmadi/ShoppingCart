@@ -4,16 +4,28 @@ using ShoppingCartApi.Domain.Events;
 using ShoppingCartApi.Domain.Events.ShoppingCarts;
 using ShoppingCartApi.Domain.ValueObjects.ShoppingCarts;
 
-namespace ShoppingCartApi.Domain;
+namespace ShoppingCartApi.Domain.Entities.ShoppingCarts;
 
 public class ShoppingCart : AggregateRoot
 {
-    public ShoppingCart(int quantity, ICollection<Product> products)
+
+
+
+
+
+    public ShoppingCart(long id,int quantity)
     {
+        SetId(id);
         Quantity = QuantityProduct.Create(quantity);
-        TotalPrice = TotalPriceProduct.Create(AndQuantityWithPrice(quantity, products.Select(x => x.Price).ToArray()));
         Products = new HashSet<Product>();
+        TotalPrice = TotalPriceProduct.Create(TotalPriceCalculate(quantity,
+            Products.Select(p=>p.Price.Value).ToArray()));
     }
+
+
+
+
+
     public TotalPriceProduct TotalPrice { get; private set; }
     public QuantityProduct Quantity { get; private set; }
     public ICollection<Product> Products { get; private set; }
@@ -21,16 +33,22 @@ public class ShoppingCart : AggregateRoot
 
 
 
-    public static ShoppingCart AddShoppingCart(int quantity, ICollection<Product> products)
+    public static ShoppingCart AddShoppingCart(long id,int quantity)
     {
-        return new ShoppingCart(quantity, products);
+        return new ShoppingCart(id, quantity);
     }
+
+
+
 
     public void AddProduct(Product product)
     {
         Products.Add(product);
-        AddDomainEvent(new ProductAddEvent(product.Id, product.Name.Value, product.Price.Value, product.Description.Value, product.StockQuantity.Value));
+        AddDomainEvent(new ProductAddEvent(product.Id, product.Name.Value, product.Price.Value, product.Description?.Value, product.StockQuantity.Value));
     }
+
+
+
 
     public void DeleteProduct(long id)
     {
@@ -44,8 +62,11 @@ public class ShoppingCart : AggregateRoot
     }
 
 
-    private static long AndQuantityWithPrice(int quantity, params long[] prices)
+
+
+    private long TotalPriceCalculate(int quantity, params long[] prices)
     {
+
         long total = 0;
         foreach (var number in prices)
         {
@@ -55,15 +76,20 @@ public class ShoppingCart : AggregateRoot
         return total;
     }
 
+
+
+
     private static void CheckPrice(long price)
     {
         if (price <= 0)
             throw new Exception("Price invalid");
     }
 
+
+
     protected override void CheckInvariants()
     {
-        throw new NotImplementedException();
+        
     }
 }
 
