@@ -5,7 +5,7 @@ using ShoppingCartApi.Domain.Entities.ShoppingCarts;
 using ShoppingCartApi.Helpers.FackData;
 using ShoppingCartApi.Domain.Data;
 
-namespace ShoppingCartApi.UseCases.ShoppingCarts.AddProductToCart;
+namespace ShoppingCartApi.UseCases.ShoppingCarts.Write.AddProduct;
 
 public class AddProductHandler : IRequestHandler<AddProduct, Result<long>>
 {
@@ -52,7 +52,7 @@ public class AddProductHandler : IRequestHandler<AddProduct, Result<long>>
 
             }
 
-            
+
 
         }
         else
@@ -66,7 +66,7 @@ public class AddProductHandler : IRequestHandler<AddProduct, Result<long>>
         }
 
 
-        return Result.Success<long>(_entityId, ContractMessages.CreateSucceed);
+        return Result.Success(_entityId, ContractMessages.CreateSucceed);
 
 
 

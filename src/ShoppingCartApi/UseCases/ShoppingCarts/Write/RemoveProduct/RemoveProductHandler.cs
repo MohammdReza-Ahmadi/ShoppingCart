@@ -4,7 +4,7 @@ using ShoppingCartApi.Domain;
 using ShoppingCartApi.Domain.Data;
 using ShoppingCartApi.Domain.Entities.ShoppingCarts;
 
-namespace ShoppingCartApi.UseCases.ShoppingCarts.RemoveProduct;
+namespace ShoppingCartApi.UseCases.ShoppingCarts.Write.RemoveProduct;
 
 public class RemoveProductHandler : IRequestHandler<RemoveProduct, Result>
 {

@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCartApi.Contracts;
 
-namespace ShoppingCartApi.UseCases.ShoppingCarts.RemoveProduct;
+namespace ShoppingCartApi.UseCases.ShoppingCarts.Write.RemoveProduct;
 
 [Route("ShoppingCart")]
-public class RemoveProductEndpoint: Controller
+public class RemoveProductEndpoint : Controller
 {
 
     private readonly ISender _sender;
