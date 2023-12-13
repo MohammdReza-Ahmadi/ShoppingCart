@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AAD9489D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Write.Tests.Integration", "Tests\ShoppingCart.Tests.Integration\ShoppingCart.Write.Tests.Integration.csproj", "{A54A7B40-6500-4FEE-B4EE-3B896737D2A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Write.Tests.Unit", "Test\ShoppingCart.Tests.Unit\ShoppingCart.Write.Tests.Unit.csproj", "{33FA6AC5-EFB5-433D-BC9F-4A9E307A26B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Write.Tests.Unit", "Tests\ShoppingCart.Tests.Unit\ShoppingCart.Write.Tests.Unit.csproj", "{33FA6AC5-EFB5-433D-BC9F-4A9E307A26B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Write.Tests.Base", "ShoppingCart.Tests.Base\ShoppingCart.Write.Tests.Base.csproj", "{E78FA7B8-1E14-42C2-9B35-71F2966CE18B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Write.Tests.Base", "Tests\ShoppingCart.Tests.Base\ShoppingCart.Write.Tests.Base.csproj", "{E78FA7B8-1E14-42C2-9B35-71F2966CE18B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
