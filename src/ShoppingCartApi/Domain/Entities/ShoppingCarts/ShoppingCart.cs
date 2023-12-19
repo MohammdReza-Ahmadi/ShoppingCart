@@ -11,25 +11,17 @@ public class ShoppingCart : AggregateRoot
 
 
 
-
-
     public ShoppingCart(long id,int quantity)
     {
         SetId(id);
         Quantity = QuantityProduct.Create(quantity);
         Products = new HashSet<Product>();
-        TotalPrice = TotalPriceProduct.Create(TotalPriceCalculate(quantity,
-            Products.Select(p=>p.Price.Value).ToArray()));
+        TotalPrice = TotalPriceProduct.Create();
     }
-
-
-
-
 
     public TotalPriceProduct TotalPrice { get; private set; }
     public QuantityProduct Quantity { get; private set; }
     public ICollection<Product> Products { get; private set; }
-
 
 
 
@@ -40,13 +32,11 @@ public class ShoppingCart : AggregateRoot
 
 
 
-
     public void AddProduct(Product product)
     {
         Products.Add(product);
         AddDomainEvent(new ProductAddEvent(product.Id, product.Name.Value, product.Price.Value, product.Description?.Value, product.StockQuantity.Value));
     }
-
 
 
 
@@ -63,26 +53,14 @@ public class ShoppingCart : AggregateRoot
 
 
 
-
-    private long TotalPriceCalculate(int quantity, params long[] prices)
+    private long TotalPriceCalculate()
     {
-
         long total = 0;
-        foreach (var number in prices)
+        foreach (var number in Products.Select(p=>p.Price))
         {
-            CheckPrice(number);
-            total += number * quantity;
+            total += number.Value * Quantity.Value;
         }
         return total;
-    }
-
-
-
-
-    private static void CheckPrice(long price)
-    {
-        if (price <= 0)
-            throw new Exception("Price invalid");
     }
 
 

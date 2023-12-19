@@ -29,7 +29,7 @@ public class Product : AggregateRoot
 
     protected override void CheckInvariants()
     {
-        throw new NotImplementedException();
+        
     }
 }
 

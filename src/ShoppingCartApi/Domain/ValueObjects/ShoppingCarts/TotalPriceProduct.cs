@@ -22,7 +22,7 @@ public class TotalPriceProduct : BaseValueObject
 
     protected override void CheckPolicies()
     {
-        throw new NotImplementedException();
+       
     }
 }
 
